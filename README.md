@@ -1,57 +1,128 @@
-# 📚 AppCursos
+📚 AppCursos – TP3
 
-Aplicación **.NET MAUI Blazor Hybrid** para la gestión de cursos digitales.  
-Este proyecto fue desarrollado como trabajo práctico integrador, implementando CRUD de usuarios, sistema de login con roles y vistas adaptadas a distintos perfiles.
+Aplicación .NET MAUI Blazor Hybrid con API REST para la gestión de cursos digitales.
+Este trabajo práctico integra la app móvil del TP2 con una API propia en ASP.NET Core, permitiendo CRUD de usuarios, login con roles y sincronización entre frontend y backend.
 
----
+✨ Características principales
 
-## ✨ Características principales
+API REST (ASP.NET Core)
 
-- **Login y Roles**
-  - Inicio de sesión básico con validación de credenciales.
-  - Roles diferenciados (Admin, Usuario).
-  - Restricciones de acceso por rol (solo Admin puede gestionar usuarios).
+Endpoints para Usuarios y Cursos.
 
-- **Gestión de Usuarios**
-  - Crear, editar, eliminar y listar usuarios.
-  - Visualización de detalles individuales.
-  - Confirmación antes de eliminar.
-  - Avatares con placeholder automático.
+CRUD completo expuesto vía Swagger.
 
-- **UI y Estilo**
-  - Tablas responsivas con Bootstrap.
-  - Botones agrupados con iconos (`bootstrap-icons`).
-  - Layout adaptado a dispositivos móviles.
-  - Logo y página de login personalizados.
+Configuración de CORS para acceso desde la app móvil.
 
----
+Login y Roles
 
-## 🛠️ Tecnologías utilizadas
+Inicio de sesión validando credenciales contra la API.
 
-- [.NET MAUI](https://learn.microsoft.com/dotnet/maui) – interfaz multiplataforma
-- [Blazor Hybrid](https://learn.microsoft.com/aspnet/core/blazor/hybrid) – componentes web embebidos
-- [Bootstrap 5](https://getbootstrap.com/) – estilos y responsive design
-- [C#](https://learn.microsoft.com/dotnet/csharp/) – lenguaje principal
-- [Entity Framework Core (opcional)] – para persistencia de datos
+Roles diferenciados: Admin y Usuario.
 
----
+Restricciones de acceso en la UI según el rol.
 
-## 📂 Estructura del proyecto
+Admin puede gestionar usuarios y cursos.
+
+Gestión de Usuarios
+
+Crear, editar, eliminar y listar usuarios.
+
+Confirmación antes de eliminar.
+
+Avatares con placeholder automático.
+
+Gestión de Cursos
+
+Listado de cursos desde la API.
+
+CRUD accesible según permisos del usuario.
+
+UI y Estilo
+
+Diseño responsivo con Bootstrap 5.
+
+Botones con íconos de bootstrap-icons.
+
+Layout adaptado a dispositivos móviles.
+
+Pantalla de login personalizada con logo.
+
+🛠️ Tecnologías utilizadas
+Frontend (Móvil)
+
+.NET MAUI
+ – interfaz multiplataforma
+
+Blazor Hybrid
+ – componentes web embebidos
+
+Bootstrap 5
+ – estilos y responsive design
+
+C#
+ – lógica principal
+
+Backend (API)
+
+ASP.NET Core 9
+ – API REST
+
+Entity Framework Core
+ – acceso a datos
+
+[SQL Server] – base de datos relacional
+
+Swagger / Swashbuckle
+ – documentación de endpoints
+
+📂 Estructura del proyecto
+
+AppCursos/ → Proyecto móvil (.NET MAUI Blazor Hybrid)
+AppCursosAPI/ → API REST en ASP.NET Core
+CursosDATA/ → Librería de modelos y acceso a datos compartidos
+
 AppCursos/
-│── Components/ → Componentes reutilizables
-│── Models/ → Clases de dominio (Usuario, etc.)
-│── Pages/ → Vistas Razor (Login, Usuarios, etc.)
-│── Services/ → Servicios de negocio (Sesión, Usuarios)
-│── Shared/ → Layout y componentes compartidos
-│── wwwroot/ → Recursos estáticos (css, imágenes, logo)
-│── AppCursos.sln → Solución principal
-│── MauiProgram.cs → Configuración inicial de la app
+│── Components/        → Componentes reutilizables
+│── Pages/             → Vistas Razor (Login, Usuarios, Cursos)
+│── Services/          → Servicios de negocio (Sesión, Usuarios, Cursos)
+│── Shared/            → Layout y componentes compartidos
+│── wwwroot/           → Recursos estáticos (css, imágenes, logo)
+
+AppCursosAPI/
+│── Controllers/       → Endpoints REST (Usuarios, Cursos)
+│── Data/              → Contexto EF Core
+│── Program.cs         → Configuración de la API
+
+CursosDATA/
+│── Models/            → Clases de dominio (Usuario, Curso, Rol)
+
+🚀 Cómo ejecutar el proyecto
+
+Clonar el repositorio:
+
+git clone https://github.com/Leandr0-Moreira/AppCursos-TP3.git
+
+
+Levantar la API:
+
+Abrir AppCursosAPI en Visual Studio.
+
+Ejecutar en perfil HTTP.
+
+Swagger disponible en /swagger.
+
+Ejecutar la App móvil (MAUI):
+
+Abrir AppCursos.sln.
+
+Seleccionar Windows Machine o emulador Android.
+
+La app consumirá la API vía http://localhost:PUERTO.
 
 👨‍💻 Autor
 
 Leandro Moreira
 
 📄 Licencia
-
 Proyecto académico sin fines comerciales.
-Distribuido bajo licencia MIT(LICENSE).
+Distribuido bajo licencia MIT (LICENSE).
